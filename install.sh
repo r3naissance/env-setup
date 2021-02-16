@@ -1,8 +1,10 @@
+#!/bin/bash
+
 cd /opt
 
 echo "Installing tools via APT"
 apt update
-apt install -y golang brutespary nmap xsltproc sslscan python3-pip tmux parallel ike-scan
+apt install -y openvpn golang brutespary nmap xsltproc sslscan python3-pip tmux parallel ike-scan
 
 echo "Installing tools via PIP"
 python3 -m pip install sslyze trufflehog
