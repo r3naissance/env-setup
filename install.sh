@@ -14,6 +14,8 @@ git clone https://github.com/danielmiessler/SecLists
 
 echo "Getting NSE"
 git clone https://github.com/r3naissance/nse
+cp nse/*.nse /usr/share/nmap/scripts/
+nmap --script-updatedb
 
 echo "Getting nmap bootstrap"
 git clone https://github.com/honze-net/nmap-bootstrap-xsl
