@@ -12,6 +12,12 @@ python3 -m pip install sslyze trufflehog
 echo "Getting SecLists"
 git clone https://github.com/danielmiessler/SecLists
 
+echo "Getting aquatone"
+mkdir aquatone
+wget -O aquatone/aquatone.zip https://github.com/michenriksen/aquatone/releases/download/v1.7.0/aquatone_linux_amd64_1.7.0.zip
+unzip aquatone/aquatone.zip -d aquatone
+cp aquatone/aquatone /usr/local/bin/
+
 echo "Getting NSE"
 git clone https://github.com/r3naissance/nse
 cp nse/*.nse /usr/share/nmap/scripts/
