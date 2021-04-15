@@ -26,8 +26,5 @@ git clone https://github.com/hakimel/reveal.js
 cd ..
 docker cp public/reveal.js/ serpico:/Serpico/public/
 
-echo "Copying config to container"
-docker cp /opt/Serpico/config.json serpico:/Serpico/
-
 echo "Starting serpico"
 docker run --name serpico -p 8888:8888 -v"$(pwd)":/Serpico/db -it serpico
