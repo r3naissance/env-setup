@@ -26,5 +26,4 @@ git clone https://github.com/hakimel/reveal.js
 
 echo "Starting serpico"
 docker run --name serpico -p 8888:8888 -v"$(pwd)/db":/Serpico/db \
-  -v"$(pwd)/tmp":/Serpico/tmp -v"$(pwd)/attachments":/Serpico/attachments \
-  -v"$(pwd)/public":/Serpico/public -it serpico
+  -v"$(pwd)/tmp":/Serpico/tmp -v"$(pwd)/attachments":/Serpico/attachments -it serpico
