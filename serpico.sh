@@ -21,5 +21,5 @@ cd Serpico
 docker build -t serpico .
 
 echo "Starting serpico"
-docker run --name serpico -p 8888:8888 -v"$(pwd)/db":/Serpico/db \
+docker run --name serpico -p 8443:8443 -v"$(pwd)/db":/Serpico/db \
   -v"$(pwd)/tmp":/Serpico/tmp -v"$(pwd)/attachments":/Serpico/attachments -it serpico
