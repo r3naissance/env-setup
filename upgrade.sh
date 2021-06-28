@@ -24,6 +24,12 @@ git pull
 python3 -m pip install -r requirements.txt
 python3 /opt/cors/cors_scan.py -h
 
+echo "Installing hakrawler"
+cd /opt/hakrawler
+git pull
+go build .
+mv hakrawler /usr/local/bin/
+
 echo "Installing gospider"
 cd /opt/gospider
 git pull
