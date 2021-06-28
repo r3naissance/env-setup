@@ -3,6 +3,9 @@
 ## setup_env.sh
 Get all of my favorite hacking tools ready to go
 
+## upgrade.sh
+Get all of my favorite hacking tools updated
+
 ## cuda.sh
 Install cuda/drivers for hashcat
 
