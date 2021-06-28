@@ -34,6 +34,12 @@ git clone https://github.com/chenjj/CORScanner cors
 python3 -m pip install -r cors/requirements.txt
 python3 /opt/cors/cors_scan.py -h
 
+echo "Getting hakrawler"
+git clone https://github.com/hakluke/hakrawler
+cd hakrawler
+go build .
+mv hakrawler /usr/local/bin/
+
 echo "Installing gospider"
 git clone https://github.com/jaeles-project/gospider
 cd gospider
