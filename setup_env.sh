@@ -12,6 +12,9 @@ python3 -m pip install sslyze trufflehog
 echo "Getting SecLists"
 git clone https://github.com/danielmiessler/SecLists
 
+echo "Getting sqlmap"
+git clone https://github.com/sqlmapproject/sqlmap
+
 echo "Getting aquatone"
 mkdir aquatone
 wget -O aquatone/aquatone.zip https://github.com/michenriksen/aquatone/releases/download/v1.7.0/aquatone_linux_amd64_1.7.0.zip
