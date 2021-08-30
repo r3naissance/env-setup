@@ -4,7 +4,7 @@ cd /opt
 
 echo "Installing tools via APT"
 apt update
-apt install python3-pip openvpn golang brutespray nmap xsltproc sslscan tmux parallel ike-scan -y
+apt install python3-pip openvpn terminator jq curl git jython jruby golang brutespray nmap xsltproc sslscan tmux parallel ike-scan -y
 
 echo "Installing tools via PIP"
 python3 -m pip install sslyze trufflehog
