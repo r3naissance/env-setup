@@ -40,7 +40,7 @@ else
   echo "[DONE]"
 fi
 
-echo -n "Installing cors scanner "
+echo -n "Upgrading cors scanner "
 cd /opt/cors
 git config pull.rebase true
 gp=$(git pull)
@@ -52,7 +52,7 @@ else
   echo "[DONE]"
 fi
 
-echo -n "Installing hakrawler "
+echo -n "Upgrading hakrawler "
 cd /opt/hakrawler
 git config pull.rebase true
 gp=$(git pull)
@@ -64,7 +64,19 @@ else
   echo "[DONE]"
 fi
 
-echo -n "Installing gospider "
+echo -n "Upgrading log4shell "
+cd /opt/nse-log4shell
+git config pull.rebase true
+gp=$(git pull)
+if [[ ! $gp == 'Already up to date.' ]]; then
+  echo $gp
+  cp *.nse /usr/share/nmap/scripts/
+  nmap --script-updatedb
+else
+  echo "[DONE]"
+fi
+
+echo -n "Upgrading gospider "
 cd /opt/gospider
 git config pull.rebase true
 gp=$(git pull)
@@ -77,7 +89,7 @@ else
   echo "[DONE]"
 fi
 
-echo -n "Installing dalfox "
+echo -n "Upgrading dalfox "
 cd /opt/dalfox
 git config pull.rebase true
 gp=$(git pull)
@@ -90,7 +102,7 @@ else
   echo "[DONE]"
 fi
 
-echo -n "Installing subfinder "
+echo -n "Upgrading subfinder "
 cd /opt/subfinder
 git config pull.rebase true
 gp=$(git pull)
@@ -104,7 +116,7 @@ else
   echo "[DONE]"
 fi
 
-echo -n "Installing nuclei "
+echo -n "Upgrading nuclei "
 cd /opt/nuclei
 git config pull.rebase true
 gp=$(git pull)
@@ -118,7 +130,7 @@ else
   echo "[DONE]"
 fi
 
-echo -n "Installing httpx "
+echo -n "Upgrading httpx "
 cd /opt/httpx
 git config pull.rebase true
 gp=$(git pull)
