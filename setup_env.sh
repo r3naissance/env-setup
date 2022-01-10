@@ -26,6 +26,11 @@ git clone https://github.com/r3naissance/nse
 cp nse/*.nse /usr/share/nmap/scripts/
 nmap --script-updatedb
 
+echo "Getting NSE log4shell"
+git clone https://github.com/Diverto/nse-log4shell
+cp nse-log4shell/*.nse /usr/share/nmap/scripts/
+nmap --script-updatedb
+
 echo "Getting nmap bootstrap"
 git clone https://github.com/honze-net/nmap-bootstrap-xsl
 
