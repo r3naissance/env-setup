@@ -18,7 +18,7 @@ git clone https://github.com/sqlmapproject/sqlmap
 echo "Getting aquatone"
 mkdir aquatone
 wget -O aquatone/aquatone.zip https://github.com/michenriksen/aquatone/releases/download/v1.7.0/aquatone_linux_amd64_1.7.0.zip
-unzip aquatone/aquatone.zip -d aquatone
+unzip -o aquatone/aquatone.zip -d aquatone
 sudo cp aquatone/aquatone /usr/local/bin/
 
 echo "Getting NSE"
