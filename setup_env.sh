@@ -24,12 +24,12 @@ sudo cp aquatone/aquatone /usr/local/bin/
 echo "Getting NSE"
 git clone https://github.com/r3naissance/nse
 sudo cp nse/*.nse /usr/share/nmap/scripts/
-nmap --script-updatedb
+sudo nmap --script-updatedb
 
 echo "Getting NSE log4shell"
 git clone https://github.com/Diverto/nse-log4shell
 sudo cp nse-log4shell/*.nse /usr/share/nmap/scripts/
-nmap --script-updatedb
+sudo nmap --script-updatedb
 
 echo "Getting nmap bootstrap"
 git clone https://github.com/honze-net/nmap-bootstrap-xsl
