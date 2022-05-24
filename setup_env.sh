@@ -43,13 +43,13 @@ echo "Getting hakrawler"
 git clone https://github.com/hakluke/hakrawler
 cd hakrawler
 go build .
-mv hakrawler /usr/local/bin/
+sudo mv hakrawler /usr/local/bin/
 
 echo "Installing gospider"
 git clone https://github.com/jaeles-project/gospider
 cd gospider
 go build .
-mv gospider /usr/local/bin/
+sudo mv gospider /usr/local/bin/
 gospider -h
 
 echo "Installing dalfox"
@@ -57,7 +57,7 @@ cd /opt
 git clone https://github.com/hahwul/dalfox
 cd dalfox
 go build .
-mv dalfox /usr/local/bin/
+sudo mv dalfox /usr/local/bin/
 dalfox -h
 
 echo "Installing subfinder"
@@ -65,7 +65,7 @@ cd /opt
 git clone https://github.com/projectdiscovery/subfinder.git
 cd subfinder/v2/cmd/subfinder
 go build .
-mv subfinder /usr/local/bin/
+sudo mv subfinder /usr/local/bin/
 subfinder -h
 
 echo "Installing nuclei"
@@ -73,7 +73,7 @@ cd /opt
 git clone https://github.com/projectdiscovery/nuclei.git
 cd nuclei/v2/cmd/nuclei
 go build .
-mv nuclei /usr/local/bin/
+sudo mv nuclei /usr/local/bin/
 nuclei -version
 
 echo "Installing httpx"
@@ -81,9 +81,9 @@ cd /opt
 git clone https://github.com/projectdiscovery/httpx.git
 cd httpx/cmd/httpx
 go build .
-mv httpx /usr/local/bin/
+sudo mv httpx /usr/local/bin/
 httpx -version
 
 echo "Updating everything and cleaning up"
-apt dist-upgrade -y
-apt auto-remove -y
+sudo apt dist-upgrade -y
+sudo apt auto-remove -y
