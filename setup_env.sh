@@ -4,7 +4,7 @@ cd /opt
 
 echo "Installing tools via APT"
 sudo apt update
-sudo apt install python3-pip openvpn terminator jq curl git jython jruby golang brutespray nmap xsltproc sslscan tmux parallel ike-scan -y
+sudo apt install python3-pip openvpn terminator jq curl git jython golang brutespray nmap xsltproc sslscan tmux parallel ike-scan nmap -y
 
 echo "Installing tools via PIP"
 python3 -m pip install sslyze trufflehog
@@ -19,16 +19,16 @@ echo "Getting aquatone"
 mkdir aquatone
 wget -O aquatone/aquatone.zip https://github.com/michenriksen/aquatone/releases/download/v1.7.0/aquatone_linux_amd64_1.7.0.zip
 unzip aquatone/aquatone.zip -d aquatone
-cp aquatone/aquatone /usr/local/bin/
+sudo cp aquatone/aquatone /usr/local/bin/
 
 echo "Getting NSE"
 git clone https://github.com/r3naissance/nse
-cp nse/*.nse /usr/share/nmap/scripts/
+sudo cp nse/*.nse /usr/share/nmap/scripts/
 nmap --script-updatedb
 
 echo "Getting NSE log4shell"
 git clone https://github.com/Diverto/nse-log4shell
-cp nse-log4shell/*.nse /usr/share/nmap/scripts/
+sudo cp nse-log4shell/*.nse /usr/share/nmap/scripts/
 nmap --script-updatedb
 
 echo "Getting nmap bootstrap"
