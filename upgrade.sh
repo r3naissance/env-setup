@@ -30,6 +30,16 @@ else
   echo "[DONE]"
 fi
 
+echo -n "Getting EATT "
+cd /opt/eatt
+git config pull.rebase true
+gp=$(git pull)
+if [[ ! $gp == 'Already up to date.' ]]; then
+  echo $gp
+else
+  echo "[DONE]"
+fi
+
 echo -n "Getting nmap bootstrap "
 cd /opt/nmap-bootstrap-xsl
 git config pull.rebase true
@@ -70,8 +80,6 @@ git config pull.rebase true
 gp=$(git pull)
 if [[ ! $gp == 'Already up to date.' ]]; then
   echo $gp
-  cp *.nse /usr/share/nmap/scripts/
-  nmap --script-updatedb
 else
   echo "[DONE]"
 fi
@@ -143,6 +151,10 @@ if [[ ! $gp == 'Already up to date.' ]]; then
 else
   echo "[DONE]"
 fi
+
+echo "Adding NSE scripts to nmap DB"
+find /opt/ -name "*.nse" -exec cp {} /usr/share/nmap/scripts/ \;
+nmap --script-updatedb
 
 echo "Updating everything and cleaning up"
 apt update
