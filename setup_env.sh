@@ -3,8 +3,8 @@
 cd /opt
 
 echo "Installing tools via APT"
-sudo apt update
-sudo apt install python3-pip openvpn terminator jq curl git jython golang brutespray nmap xsltproc sslscan tmux parallel ike-scan nmap -y
+apt update
+apt install python3-pip openvpn terminator jq curl git golang brutespray nmap xsltproc sslscan tmux parallel ike-scan -y
 
 echo "Installing tools via PIP"
 python3 -m pip install sslyze trufflehog
@@ -18,18 +18,17 @@ git clone https://github.com/sqlmapproject/sqlmap
 echo "Getting aquatone"
 mkdir aquatone
 wget -O aquatone/aquatone.zip https://github.com/michenriksen/aquatone/releases/download/v1.7.0/aquatone_linux_amd64_1.7.0.zip
-unzip -o aquatone/aquatone.zip -d aquatone
-sudo cp aquatone/aquatone /usr/local/bin/
+unzip aquatone/aquatone.zip -d aquatone
+cp aquatone/aquatone /usr/local/bin/
 
 echo "Getting NSE"
 git clone https://github.com/r3naissance/nse
-sudo cp nse/*.nse /usr/share/nmap/scripts/
-sudo nmap --script-updatedb
 
-echo "Getting NSE log4shell"
+echo "Getting EATT"
+git clone https://github.com/r3naissance/eatt
+
+echo "Getting NSE Log4Shell"
 git clone https://github.com/Diverto/nse-log4shell
-sudo cp nse-log4shell/*.nse /usr/share/nmap/scripts/
-sudo nmap --script-updatedb
 
 echo "Getting nmap bootstrap"
 git clone https://github.com/honze-net/nmap-bootstrap-xsl
@@ -43,13 +42,13 @@ echo "Getting hakrawler"
 git clone https://github.com/hakluke/hakrawler
 cd hakrawler
 go build .
-sudo mv hakrawler /usr/local/bin/
+mv hakrawler /usr/local/bin/
 
 echo "Installing gospider"
 git clone https://github.com/jaeles-project/gospider
 cd gospider
 go build .
-sudo mv gospider /usr/local/bin/
+mv gospider /usr/local/bin/
 gospider -h
 
 echo "Installing dalfox"
@@ -57,7 +56,7 @@ cd /opt
 git clone https://github.com/hahwul/dalfox
 cd dalfox
 go build .
-sudo mv dalfox /usr/local/bin/
+mv dalfox /usr/local/bin/
 dalfox -h
 
 echo "Installing subfinder"
@@ -65,7 +64,7 @@ cd /opt
 git clone https://github.com/projectdiscovery/subfinder.git
 cd subfinder/v2/cmd/subfinder
 go build .
-sudo mv subfinder /usr/local/bin/
+mv subfinder /usr/local/bin/
 subfinder -h
 
 echo "Installing nuclei"
@@ -73,7 +72,7 @@ cd /opt
 git clone https://github.com/projectdiscovery/nuclei.git
 cd nuclei/v2/cmd/nuclei
 go build .
-sudo mv nuclei /usr/local/bin/
+mv nuclei /usr/local/bin/
 nuclei -version
 
 echo "Installing httpx"
@@ -81,9 +80,13 @@ cd /opt
 git clone https://github.com/projectdiscovery/httpx.git
 cd httpx/cmd/httpx
 go build .
-sudo mv httpx /usr/local/bin/
+mv httpx /usr/local/bin/
 httpx -version
 
+echo "Adding NSE scripts to nmap DB"
+find /opt/ -name "*.nse" -exec cp {} /usr/share/nmap/scripts/ \;
+nmap --script-updatedb
+
 echo "Updating everything and cleaning up"
-sudo apt dist-upgrade -y
-sudo apt auto-remove -y
+apt dist-upgrade -y
+apt auto-remove -y
