@@ -50,6 +50,16 @@ else
   echo "[DONE]"
 fi
 
+echo -n "Getting nmap bootstrap "
+cd /opt/Nmap-XML-to-CSV
+git config pull.rebase true
+gp=$(git pull)
+if [[ ! $gp == 'Already up to date.' ]]; then
+  echo $gp
+else
+  echo "[DONE]"
+fi
+
 echo -n "Upgrading cors scanner "
 cd /opt/cors
 git config pull.rebase true
