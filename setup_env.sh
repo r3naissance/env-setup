@@ -33,6 +33,9 @@ git clone https://github.com/Diverto/nse-log4shell
 echo "Getting nmap bootstrap"
 git clone https://github.com/honze-net/nmap-bootstrap-xsl
 
+echo "Getting NMAP to CSV"
+git clone https://github.com/NetsecExplained/Nmap-XML-to-CSV
+
 echo "Installing cors scanner"
 git clone https://github.com/chenjj/CORScanner cors
 python3 -m pip install -r cors/requirements.txt
