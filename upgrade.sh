@@ -50,7 +50,7 @@ else
   echo "[DONE]"
 fi
 
-echo -n "Getting nmap bootstrap "
+echo -n "Getting NMAP to CSV "
 cd /opt/Nmap-XML-to-CSV
 git config pull.rebase true
 gp=$(git pull)
