@@ -166,6 +166,10 @@ echo "Adding NSE scripts to nmap DB"
 find /opt/ -name "*.nse" -exec cp {} /usr/share/nmap/scripts/ \;
 nmap --script-updatedb
 
+echo "Updating pip & packages"
+python3 -m pip install --upgrade pip
+python3 -m pip install sslyze trufflehog
+
 echo "Updating everything and cleaning up"
 apt update
 apt dist-upgrade -y
