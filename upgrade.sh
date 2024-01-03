@@ -144,7 +144,7 @@ git config pull.rebase true
 gp=$(git pull)
 if [[ ! $gp == 'Already up to date.' ]]; then
   echo $gp
-  cd v2/cmd/nuclei
+  cd cmd/nuclei
   go build .
   mv nuclei /usr/local/bin/
   nuclei -version
