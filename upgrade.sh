@@ -40,6 +40,10 @@ else
   echo "[DONE]"
 fi
 
+echo "Adding NSE scripts to nmap DB"
+find /opt/ -name "*.nse" -exec cp {} /usr/share/nmap/scripts/ \;
+nmap --script-updatedb
+
 echo -n "Getting nmap bootstrap "
 cd /opt/nmap-bootstrap-xsl
 git config pull.rebase true
@@ -161,10 +165,6 @@ if [[ ! $gp == 'Already up to date.' ]]; then
 else
   echo "[DONE]"
 fi
-
-echo "Adding NSE scripts to nmap DB"
-find /opt/ -name "*.nse" -exec cp {} /usr/share/nmap/scripts/ \;
-nmap --script-updatedb
 
 echo "Updating pip & packages"
 python3 -m pip install --upgrade pip
