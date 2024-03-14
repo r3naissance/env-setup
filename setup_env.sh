@@ -1,13 +1,14 @@
 #!/bin/bash
 
 cd /opt
+nonROOT=$(who am i | awk '{print $1}')
 
 echo "Installing tools via APT"
 apt update
 apt install python3-pip openvpn terminator jq curl git golang brutespray nmap xsltproc sslscan tmux parallel ike-scan ntpq -y
 
 echo "Installing tools via PIP"
-python3 -m pip install sslyze trufflehog
+sudo user -u nonROOT python3 -m pip install sslyze trufflehog
 
 echo "Getting SecLists"
 git clone https://github.com/danielmiessler/SecLists
