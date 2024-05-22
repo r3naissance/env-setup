@@ -32,6 +32,31 @@ echo "Building serpico"
 cd Serpico
 docker build -t serpico .
 
+echo "Creating service"
+cat > /etc/systemd/system/serpico.service <<EOL
+[Unit]
+Description=Serpico Reporting Server
+After=network.target auditd.service syslog.target docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+RemainAfterExit=yes
+
+ExecStart=/usr/bin/docker start serpico
+ExecStop=/usr/bin/docker stop serpico
+Restart=always
+
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+
+[Install]
+WantedBy=multi-user.target
+EOL
+
+echo "Starting and enabling service"
+sudo systemctl daemon-reload
+sudo systemctl enable serpico.service
+
 echo "Starting serpico"
 docker run --name serpico -p 8443:8443 -v"$(pwd)/db":/Serpico/db \
   -v"$(pwd)/tmp":/Serpico/tmp -v"$(pwd)/attachments":/Serpico/attachments \
