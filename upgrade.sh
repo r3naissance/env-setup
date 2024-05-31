@@ -1,15 +1,5 @@
 #!/bin/bash
 
-echo -n "Getting SecLists "
-cd /opt/SecLists
-git config pull.rebase true
-gp=$(git pull)
-if [[ ! $gp == 'Already up to date.' ]]; then
-  echo $gp
-else
-  echo "[DONE]"
-fi
-
 echo -n "Getting sqlmap "
 cd /opt/sqlmap
 git config pull.rebase true
