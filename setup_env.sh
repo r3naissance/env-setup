@@ -5,7 +5,7 @@ nonROOT=$(who am i | awk '{print $1}')
 
 echo "Installing tools via APT"
 apt update
-apt install python3-pip openvpn terminator jq curl git golang brutespray nmap xsltproc sslscan tmux parallel ike-scan ntpq seclists -y
+apt install python3-pip openvpn terminator jq curl git golang brutespray nmap xsltproc sslscan tmux parallel ike-scan ntpsec seclists -y
 
 echo "Installing tools via PIP"
 sudo -u nonROOT python3 -m pip install sslyze trufflehog
