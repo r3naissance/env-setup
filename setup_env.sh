@@ -8,7 +8,7 @@ apt update
 apt install python3-pip openvpn terminator jq curl git golang brutespray nmap xsltproc sslscan tmux parallel ike-scan ntpq seclists -y
 
 echo "Installing tools via PIP"
-sudo user -u nonROOT python3 -m pip install sslyze trufflehog
+sudo -u nonROOT python3 -m pip install sslyze trufflehog
 
 echo "Getting sqlmap"
 git clone https://github.com/sqlmapproject/sqlmap
